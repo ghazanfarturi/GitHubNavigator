@@ -1,0 +1,19 @@
+# -*- coding:utf-8 -*-
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Github Navigator</title>
+</head>
+<body>
+	<h1>${search_term}</h1>
+	%for repo in repositories:
+		<h2>${loop.index+1}. ${repo[0]}</h2>
+		<h3> Created ${repo[1]['created_at']}</h3>
+		<a href="${repo[1]['owner_url']}"><img src="${repo[1]['owner_avatar_url']}" alt="avatar" height="42" width="42"/></a>
+		${repo[1]['owner_login']}
+		<h3>LastCommit</h3>
+		<p>${repo[1]['sha']} --- ${repo[1]['commit_message']} --- ${repo[1]['commit_author_name']}</p>
+		<hr/>		
+	%endfor
+</body>
+</html>
